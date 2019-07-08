@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<unistd.h>
+#include<fcntl.h>
 #include<arpa/inet.h>
 #include<sys/types.h>
 #include<sys/socket.h>
@@ -25,9 +26,17 @@ int main(int argc, char **argv)
 	len = sizeof(cliaddr);
 	newfd = accept(sockfd, (struct sockaddr*)&cliaddr, &len);
 	n = read(newfd, buff, sizeof(buff));
-	printf("Received: %s\n", buff);
-	printf("Response: ");
-	scanf("%s", buff);
+	printf("File name: %s\n", buff);
+	int fd = open(buff, O_RDONLY);
+	if(fd < 0) {
+		strcpy(buff, "Does not exist!\n");
+	}
+	else {
+		n = 0;
+		bzero(buff, sizeof(buff));
+		read(fd, buff, 1024);
+		close(fd);
+	}
 	n = write(newfd, buff, sizeof(buff));
 	close(newfd);
 	close(sockfd);
