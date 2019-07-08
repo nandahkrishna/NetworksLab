@@ -23,6 +23,8 @@ int main(int argc, char **argv)
 	printf("Enter the message: ");
 	scanf("%s", buff);
 	n = write(sockfd, buff, sizeof(buff));
+	n = read(sockfd, buff, sizeof(buff));
+	printf("Response: %s\n", buff);
 	close(sockfd);
 	return 0;
 }

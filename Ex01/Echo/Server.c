@@ -26,6 +26,9 @@ int main(int argc, char **argv)
 	newfd = accept(sockfd, (struct sockaddr*)&cliaddr, &len);
 	n = read(newfd, buff, sizeof(buff));
 	printf("Received: %s\n", buff);
+	printf("Response: ");
+	scanf("%s", buff);
+	n = write(newfd, buff, sizeof(buff));
 	close(sockfd);
 	close(newfd);
 	return 0;
