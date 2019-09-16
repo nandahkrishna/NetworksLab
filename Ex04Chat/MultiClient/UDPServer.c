@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 		perror("Bind error!\n");
 	len = sizeof(cliaddr);
 	while(1) {
-		n = recvfrom(sockfd, buff, sizeof(buff), MSG_WAITALL, (struct sockaddr*)&servaddr, &len);
+		n = recvfrom(sockfd, buff, sizeof(buff), MSG_WAITALL, (struct sockaddr*)&cliaddr, &len);
 		if(n != 0) printf("%s\n", buff);
 		strcpy(buff, "\0");
 	}
