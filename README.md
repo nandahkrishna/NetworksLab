@@ -6,5 +6,6 @@ This repository contains programs written for the Networks Lab in Semester 5. <b
 3. File Transfer Client-Server <br>
 4. Chat Client-Server <br>
 5. Study of System Commands <br>
-6. Simulation of ARP and RARP <br>
+6. Simulation of ARP <br>
 7. Simulation of DNS Lookup <br>
+8. Webpage Download using HTTP <br>
