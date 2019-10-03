@@ -22,12 +22,12 @@ int main(int argc, char *argv[])
         exit(0);
     }
     listen(sfd, 10);
-    char ch = 'y';
+    int ch = 1;
     int i = 0;
     int fd[10];
     char iplist[10][100];
     struct sockaddr_in clist[10];
-    while(ch == 'y')
+    while(ch == 1)
     {
         socklen_t len = sizeof(struct sockaddr_in);
         int f1 = accept(sfd, (struct sockaddr *)&clientaddr, &len);
@@ -42,8 +42,8 @@ int main(int argc, char *argv[])
         i++;
         printf("%s\n", str1);
         sleep(1);
-        printf("Enter 'y' for more clients or 'n' to quit: ");
-        scanf("%c", &ch);
+        printf("Enter 1 for more clients or 0 to quit: ");
+        scanf("%d", &ch);
     }
     char *ipreq;
     char *macreply;
@@ -60,14 +60,14 @@ int main(int argc, char *argv[])
         int nr = read(fd[i], macreply, 99);
         macreply[nr] = '\0';
         if(strcmp(macreply, "null") != 0) {
-            printf("MAC Address of %s: %s", iplist[i], macreply);
+            printf("MAC Address of %s: %s\n", iplist[i], macreply);
             sleep(1);
             char buff[] = "10110110";
             write(fd[i], buff, sizeof(buff));
             break;
         }
         else {
-            char buff[] = "IP mismatch!";
+            char buff[] = "IP mismatch!\n";
             write(fd[i], buff, sizeof(buff));
         }
         i++;
