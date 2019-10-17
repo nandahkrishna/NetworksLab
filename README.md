@@ -9,3 +9,9 @@ This repository contains programs written for the Networks Lab in Semester 5. <b
 6. Simulation of ARP <br>
 7. Simulation of DNS Lookup <br>
 8. Webpage Download using HTTP <br>
+9. Performance Evaluation of TCP and UDP <br>
+10. Simulation of Distance Vector Routing <br>
+11. Simulation of Link State Routing <br>
+12. Performance Evaluation of Routing Protocols <br>
+13. Performance Evaluation of Congestion Control Algorithms <br>
+14. Hamming Code Error Detection and Correction
